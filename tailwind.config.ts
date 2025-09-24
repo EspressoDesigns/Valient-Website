@@ -47,6 +47,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Gaming-specific colors
+        gaming: {
+          bg: "hsl(var(--gaming-bg))",
+          surface: "hsl(var(--gaming-surface))",
+          glow: "hsl(var(--gaming-glow))",
+          success: "hsl(var(--gaming-success))",
+          warning: "hsl(var(--gaming-warning))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -84,6 +92,18 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite alternate",
+      },
+      backgroundImage: {
+        "gradient-gaming": "var(--gradient-primary)",
+        "gradient-card": "var(--gradient-card)",
+        "gradient-hero": "var(--gradient-hero)",
+      },
+      boxShadow: {
+        "glow": "var(--shadow-glow)",
+        "card": "var(--shadow-card)",
+        "floating": "var(--shadow-floating)",
       },
     },
   },
