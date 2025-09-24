@@ -15,12 +15,12 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <Badge className="bg-gaming-glow/20 text-gaming-glow border-gaming-glow/30 hover:bg-gaming-glow/30">
+              <Badge className="bg-gaming-accent2/20 text-gaming-accent1 border-gaming-accent2/30 hover:bg-gaming-accent2/30">
                 New Release • v2.0
               </Badge>
               
               <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-foreground via-gaming-accent1 to-gaming-accent2 bg-clip-text text-transparent">
                   Espresso
                 </span>
                 <br />
@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
             <div className="flex items-center gap-8 pt-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-gaming-glow">250K+</div>
+                <div className="text-2xl font-bold text-gaming-accent2">250K+</div>
                 <div className="text-sm text-muted-foreground">Active Users</div>
               </div>
               <div className="text-center">

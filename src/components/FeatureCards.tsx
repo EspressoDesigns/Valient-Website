@@ -9,7 +9,7 @@ const features = [
   },
   {
     icon: Gamepad2,
-    title: "Game Integration",
+    title: "Game Integration", 
     description: "Seamlessly connect and automate your favorite games with powerful API integration"
   },
   {
@@ -60,7 +60,7 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
   return (
     <div
       ref={cardRef}
-      className="relative min-w-[400px] h-[280px] bg-gradient-to-br from-gaming-surface/80 to-card/60 backdrop-blur-sm rounded-3xl p-8 border border-border/20 overflow-hidden group cursor-pointer"
+      className="relative min-w-[400px] h-[280px] bg-gradient-to-br from-gaming-surface/60 to-card/40 backdrop-blur-sm rounded-3xl p-8 border border-border/10 overflow-hidden group cursor-pointer continuous-float"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -68,31 +68,32 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
         transform: isHovered 
           ? `perspective(1000px) rotateX(${(mousePosition.y - 140) * 0.1}deg) rotateY(${(mousePosition.x - 200) * 0.1}deg) translateZ(10px)`
           : 'none',
-        transition: isHovered ? 'none' : 'transform 0.3s ease-out'
+        transition: isHovered ? 'none' : 'transform 0.3s ease-out',
+        animationDelay: `${index * 0.5}s`
       }}
     >
-      {/* Glow effect that follows mouse */}
-      {isHovered && (
-        <div
-          className="absolute w-64 h-64 bg-gaming-glow/20 rounded-full blur-xl pointer-events-none"
-          style={{
-            left: mousePosition.x - 128,
-            top: mousePosition.y - 128,
-            transition: 'opacity 0.3s ease-out'
-          }}
-        />
-      )}
+      {/* Continuous glow effect that follows mouse */}
+      <div
+        className={`absolute w-64 h-64 bg-gaming-accent2/15 rounded-full blur-xl pointer-events-none transition-opacity duration-500 ${
+          isHovered ? 'opacity-100' : 'opacity-60'
+        }`}
+        style={{
+          left: isHovered ? mousePosition.x - 128 : 200 - 128,
+          top: isHovered ? mousePosition.y - 128 : 140 - 128,
+          transition: isHovered ? 'opacity 0.3s ease-out' : 'all 3s ease-in-out'
+        }}
+      />
       
       {/* Icon */}
       <div className="relative z-10 mb-6">
-        <div className="w-12 h-12 rounded-2xl bg-gaming-glow/10 flex items-center justify-center border border-gaming-glow/20">
-          <feature.icon className="w-6 h-6 text-gaming-glow" />
+        <div className="w-12 h-12 rounded-2xl bg-gaming-accent2/10 flex items-center justify-center border border-gaming-accent2/20 glow-pulse">
+          <feature.icon className="w-6 h-6 text-gaming-accent2" />
         </div>
       </div>
       
       {/* Content */}
       <div className="relative z-10">
-        <h3 className="text-3xl font-bold text-foreground mb-4 group-hover:text-gaming-glow transition-colors duration-300">
+        <h3 className="text-3xl font-bold text-foreground mb-4 group-hover:text-gaming-accent1 transition-colors duration-300">
           {feature.title}
         </h3>
         <p className="text-muted-foreground text-lg leading-relaxed">
@@ -100,8 +101,15 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
         </p>
       </div>
       
-      {/* Subtle border glow on hover */}
-      <div className="absolute inset-0 rounded-3xl border border-gaming-glow/0 group-hover:border-gaming-glow/30 transition-all duration-300" />
+      {/* Enhanced border glow on hover */}
+      <div className="absolute inset-0 rounded-3xl border border-gaming-accent2/0 group-hover:border-gaming-accent2/40 transition-all duration-500" />
+      
+      {/* Subtle animated background pattern */}
+      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+        <div className="absolute top-4 right-4 w-2 h-2 bg-gaming-accent1 rounded-full animate-pulse" />
+        <div className="absolute bottom-8 left-6 w-1 h-1 bg-gaming-accent2 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 right-8 w-1.5 h-1.5 bg-gaming-accent1 rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+      </div>
     </div>
   );
 };
@@ -135,11 +143,11 @@ export const FeatureCards = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gaming-bg/50 overflow-hidden">
+    <section id="features" className="py-24 px-6 bg-gaming-bg/30 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-foreground to-gaming-glow bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground to-gaming-accent1 bg-clip-text text-transparent">
               Powerful Features
             </span>
           </h2>
@@ -149,7 +157,7 @@ export const FeatureCards = () => {
           </p>
         </div>
 
-        {/* Infinite Scrolling Cards */}
+        {/* Infinite Scrolling Cards with Continuous Animation */}
         <div 
           className="flex gap-8 transition-transform duration-700 ease-out"
           style={{
@@ -167,15 +175,15 @@ export const FeatureCards = () => {
           ))}
         </div>
 
-        {/* Navigation Dots */}
+        {/* Enhanced Navigation Dots */}
         <div className="flex justify-center gap-3 mt-12">
           {features.map((_, index) => (
             <button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex 
-                  ? 'bg-gaming-glow shadow-glow' 
-                  : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  ? 'bg-gaming-accent2 shadow-glow scale-125' 
+                  : 'bg-muted-foreground/20 hover:bg-muted-foreground/40 hover:scale-110'
               }`}
               onClick={() => setCurrentIndex(index)}
             />

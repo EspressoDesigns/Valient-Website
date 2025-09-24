@@ -47,11 +47,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Gaming-specific colors
+        // Gaming-specific colors with darker palette
         gaming: {
           bg: "hsl(var(--gaming-bg))",
           surface: "hsl(var(--gaming-surface))",
           glow: "hsl(var(--gaming-glow))",
+          accent1: "hsl(var(--gaming-accent1))",
+          accent2: "hsl(var(--gaming-accent2))",
           success: "hsl(var(--gaming-success))",
           warning: "hsl(var(--gaming-warning))",
         },
