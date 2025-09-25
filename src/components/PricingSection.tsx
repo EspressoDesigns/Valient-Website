@@ -87,13 +87,9 @@ export const PricingSection = () => {
           {pricingPlans.map((plan, index) => (
             <Card 
               key={plan.name}
-              className={`relative card-gaming p-6 group hover:scale-105 transition-all duration-500 continuous-float ${
-                plan.popular ? 'ring-2 ring-primary/50 shadow-glow' : ''
+              className={`relative card-gaming p-6 group hover:-translate-y-2 transition-all duration-300 ${
+                plan.popular ? 'ring-2 ring-primary/50 shadow-glow scale-105' : ''
               }`}
-              style={{ 
-                animationDelay: `${index * 0.2}s`,
-                transform: plan.popular ? 'scale(1.05)' : 'scale(1)'
-              }}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

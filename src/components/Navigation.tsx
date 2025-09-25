@@ -1,64 +1,59 @@
 import { useState } from "react";
 import { Search, User, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 export const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("Features");
-  const tabs = ["Features", "Pricing", "Download", "Contact"];
+  const [activeTab, setActiveTab] = useState("Home");
+  const tabs = ["Home", "Editor", "Scripts", "Settings"];
 
   const handleNavigation = (tab: string) => {
     setActiveTab(tab);
-    if (tab === "Features") {
-      document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
-    } else if (tab === "Pricing") {
-      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+    if (tab === "Home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   return (
-    <nav className="bg-gaming-bg/95 backdrop-blur-md border-b border-border/30 px-6 py-4 sticky top-0 z-50">
+    <nav className="bg-gaming-surface/95 backdrop-blur-md border-b border-border/20 px-6 py-3 sticky top-0 z-50">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
-        {/* Brand Logo and Profile */}
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-pulse">
-              <User className="w-6 h-6 text-foreground" />
-            </div>
-            <h1 className="text-xl font-bold text-gaming-accent1">Espresso</h1>
+        {/* Profile and Brand */}
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gaming-accent2/80 to-gaming-accent1/80 flex items-center justify-center">
+            <User className="w-4 h-4 text-foreground" />
+          </div>
+          <span className="text-lg font-semibold text-gaming-accent1">Espresso</span>
+        </div>
+
+        {/* Center Navigation */}
+        <div className="flex items-center gap-2">
+          <div className="p-1 rounded-lg bg-gaming-bg/60">
+            <Search className="w-4 h-4 text-muted-foreground mx-3" />
           </div>
           
-          {/* Navigation Tabs */}
-          <div className="flex gap-1 ml-8">
+          <div className="flex gap-1 bg-gaming-bg/60 rounded-lg p-1">
             {tabs.map((tab) => (
-              <Button
+              <button
                 key={tab}
-                variant="ghost"
-                className={`px-6 py-2 rounded-lg transition-all duration-300 ${
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   activeTab === tab
-                    ? "bg-primary/20 text-primary border border-primary/30 shadow-glow"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/30"
+                    ? "bg-gaming-surface text-gaming-accent1 shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-gaming-surface/50"
                 }`}
                 onClick={() => handleNavigation(tab)}
               >
                 {tab}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Search and Download */}
-        <div className="flex items-center gap-4">
-          <div className="relative hidden md:block">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              placeholder="Search features..."
-              className="pl-10 w-64 bg-secondary/30 border-border/30 rounded-lg text-foreground placeholder:text-muted-foreground"
-            />
-          </div>
-          
-          <Button className="bg-gradient-to-r from-gaming-accent2 to-primary text-foreground hover:scale-105 transition-all duration-300">
-            <Download className="w-4 h-4 mr-2" />
+        {/* Right Actions */}
+        <div className="flex items-center gap-3">
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="border-gaming-accent2/30 text-gaming-accent2 hover:bg-gaming-accent2/10"
+          >
             Download
           </Button>
         </div>
