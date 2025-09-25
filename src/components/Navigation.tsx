@@ -4,12 +4,16 @@ import { Button } from "@/components/ui/button";
 
 export const Navigation = () => {
   const [activeTab, setActiveTab] = useState("Home");
-  const tabs = ["Home", "Editor", "Scripts", "Settings"];
+  const tabs = ["Home", "Features", "Pricing", "Contact"];
 
   const handleNavigation = (tab: string) => {
     setActiveTab(tab);
     if (tab === "Home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (tab === "Features") {
+      document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
+    } else if (tab === "Pricing") {
+      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
