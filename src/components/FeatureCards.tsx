@@ -119,9 +119,13 @@ export const FeatureCards = () => {
   const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % features.length);
-    }, 4000);
+    const startCarousel = () => {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % features.length);
+      }, 3000); // Faster carousel motion
+    };
+
+    startCarousel();
 
     return () => {
       if (intervalRef.current) {
@@ -130,16 +134,13 @@ export const FeatureCards = () => {
     };
   }, []);
 
+  // Don't pause on hover - keep continuous motion
   const handleMouseEnter = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
+    // Remove the pause functionality to keep continuous motion
   };
 
   const handleMouseLeave = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % features.length);
-    }, 4000);
+    // Remove the restart functionality to keep continuous motion
   };
 
   return (
@@ -159,12 +160,10 @@ export const FeatureCards = () => {
 
         {/* Infinite Scrolling Cards with Continuous Animation */}
         <div 
-          className="flex gap-8 transition-transform duration-700 ease-out"
+          className="flex gap-8 transition-transform duration-1000 ease-in-out"
           style={{
             transform: `translateX(-${currentIndex * 408}px)`,
           }}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
         >
           {infiniteFeatures.map((feature, index) => (
             <FeatureCard 
