@@ -21,17 +21,17 @@ export const HeroSection = () => {
               
               <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-foreground via-gaming-accent1 to-gaming-accent2 bg-clip-text text-transparent">
-                  Espresso
+                  Valient
                 </span>
                 <br />
                 <span className="text-muted-foreground text-4xl lg:text-5xl">
-                  Automation Suite
+                  Scripting IDE
                 </span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                The ultimate automation and scripting platform. Execute, manage, and deploy 
-                your scripts with the power of a professional gaming-grade interface.
+                The ultimate IDE and scripting platform. Execute, manage, and deploy 
+                your scripts with the power of a professional modern Interface.
               </p>
             </div>
 

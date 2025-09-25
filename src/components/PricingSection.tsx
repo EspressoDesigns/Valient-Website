@@ -11,9 +11,8 @@ const pricingPlans = [
     description: "Perfect for short-term projects and testing",
     features: [
       "Full access to all features",
-      "Up to 100 script executions",
-      "Standard support",
-      "Basic analytics"
+      "Standard execution",
+      "Basic Script Analyisis"
     ],
     popular: false,
     gradient: "from-gaming-accent2 to-primary"
@@ -25,10 +24,10 @@ const pricingPlans = [
     description: "Great for weekly automation cycles",
     features: [
       "Full access to all features",
-      "Up to 1,000 script executions",
+      "Basic script Uploading",
       "Priority support",
-      "Advanced analytics",
-      "Custom integrations"
+      "Advanced scripting analytics",
+      "Custom theme integrations"
     ],
     popular: true,
     gradient: "from-primary to-secondary"
@@ -40,11 +39,11 @@ const pricingPlans = [
     description: "Most popular choice for regular users",
     features: [
       "Full access to all features",
-      "Unlimited script executions",
+      "Unlimited script uploads",
       "24/7 priority support",
       "Advanced analytics & reporting",
-      "Custom integrations",
-      "API access"
+      "Custom theme integrations",
+      "Advanced Script Reporting",
     ],
     popular: false,
     gradient: "from-gaming-accent2 to-gaming-accent1"
@@ -56,12 +55,9 @@ const pricingPlans = [
     description: "Best value for dedicated automation",
     features: [
       "Full access to all features",
-      "Unlimited everything",
-      "Dedicated support manager",
-      "Custom analytics dashboard",
-      "Priority API access",
-      "Beta feature access",
-      "Custom deployment options"
+      "Access to Advanced scripting API documentation",
+      "Access to API for custom interfaces",
+      "Access to Beta versions",
     ],
     popular: false,
     gradient: "from-secondary to-gaming-accent2"
@@ -79,7 +75,7 @@ export const PricingSection = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose the perfect plan for your automation needs. All plans include full access to our professional suite.
+            Choose the perfect plan for your scripting needs. All plans include full access to our professional IDE.
           </p>
         </div>
 
@@ -132,9 +128,6 @@ export const PricingSection = () => {
         </div>
 
         <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-4">
-            All plans include a 7-day free trial. No credit card required.
-          </p>
           <Button variant="outline" className="border-gaming-accent2/30 hover:bg-gaming-accent2/10">
             Compare All Features
           </Button>

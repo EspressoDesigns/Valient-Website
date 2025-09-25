@@ -22,10 +22,7 @@ export const Navigation = () => {
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Profile and Brand */}
         <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gaming-accent2/80 to-gaming-accent1/80 flex items-center justify-center">
-            <User className="w-4 h-4 text-foreground" />
-          </div>
-          <span className="text-lg font-semibold text-gaming-accent1">Espresso</span>
+          <span className="text-lg font-semibold text-gaming-accent1">Valient</span>
         </div>
 
         {/* Center Navigation */}
